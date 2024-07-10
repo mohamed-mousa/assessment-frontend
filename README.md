@@ -49,5 +49,5 @@ To start the development server:
 Using npm:
 
 ```sh
-npm start
+npm run dev
 ```
