@@ -1,29 +1,30 @@
 import {
-  TopNavBar,
   NavBar,
   Footer,
   Carousel,
-  Categories,
+  TopNavBar,
   CountDown,
-  SectionTitle,
-  ProductCard,
+  Categories,
+  Separator,
+  OurFeature,
   PrimaryBtn,
-  SliderContainer,
+  ProductCard,
+  SectionTitle,
   CategoryCard,
   OfferProduct,
+  SliderContainer,
   FeaturedProductCard,
-  OurFeature,
 } from "@/components";
 import { useEffect, useState } from "react";
 import { getProducts, getCategories } from "@/services";
 import {
+  iconA,
+  iconB,
+  iconC,
   featuredProduct1,
   featuredProduct2,
   featuredProduct3,
   featuredProduct4,
-  iconA,
-  iconB,
-  iconC,
 } from "@/assets";
 
 const Home = () => {
@@ -85,6 +86,7 @@ const Home = () => {
       icon: iconC,
     },
   ];
+
   // get products from api
   async function fetchProducts() {
     try {
@@ -125,6 +127,7 @@ const Home = () => {
 
       {/* Today products */}
       <section className="pt-4 relative">
+        {/* title & counter */}
         <SectionTitle
           className="px-4"
           smallTitle="Today’s"
@@ -134,6 +137,7 @@ const Home = () => {
           <div></div>
         </SectionTitle>
 
+        {/* sidler */}
         <div className="xl:overflow-x-hidden ">
           <article className="xl:ms-20 md:mt-10 mt-4 xl:-me-56 ">
             <SliderContainer arrowsStyle="lg:end-24 end-0 md:absolute gap-3 md:top-20 md:mb-0 mb-4  justify-center">
@@ -150,12 +154,11 @@ const Home = () => {
       </section>
 
       {/* separator */}
-      <div className=" xl:px-24 md:py-12 py-5">
-        <hr />
-      </div>
+      <Separator />
 
       {/* categories */}
       <section className=" relative">
+        {/* title */}
         <SectionTitle
           className="px-4"
           smallTitle="Categories"
@@ -164,6 +167,7 @@ const Home = () => {
           <div></div>
         </SectionTitle>
 
+        {/* sidler */}
         <article className="xl:mx-20 md:mt-10 mt-4 ">
           <SliderContainer
             slidesNumber={6}
@@ -178,12 +182,11 @@ const Home = () => {
       </section>
 
       {/* separator */}
-      <div className=" xl:px-24 md:py-12 py-5">
-        <hr />
-      </div>
+      <Separator />
 
       {/* This Month products */}
       <section className="pt-4 relative">
+        {/* title */}
         <SectionTitle
           className="px-4"
           smallTitle="This Month"
@@ -192,6 +195,7 @@ const Home = () => {
           <PrimaryBtn title="View All" toUrl="#" />
         </SectionTitle>
 
+        {/* product cards */}
         <article className="xl:mx-20 md:mt-10 mt-4 grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-y-6">
           {products?.splice(0, 4).map((product) => (
             <ProductCard data={product} hideDiscount showOldPrice />
@@ -200,16 +204,17 @@ const Home = () => {
       </section>
 
       {/* separator */}
-      <div className=" xl:px-24 md:py-12 py-5"></div>
+      <Separator noLine />
 
       {/* product offer */}
       <OfferProduct />
 
       {/* separator */}
-      <div className=" xl:px-24 md:py-12 py-5"></div>
+      <Separator noLine />
 
       {/* Our products */}
       <section className="pt-4 relative">
+        {/* title */}
         <SectionTitle
           className="px-4"
           smallTitle="Our Products"
@@ -218,6 +223,7 @@ const Home = () => {
           <div></div>
         </SectionTitle>
 
+        {/* sidler */}
         <article className="xl:mx-20 md:mt-10 mt-4">
           <SliderContainer
             newSettings={ourProductsSliderSettings}
@@ -235,17 +241,19 @@ const Home = () => {
       </section>
 
       {/* separator */}
-      <div className=" xl:px-24 md:py-12 py-5"></div>
+      <Separator noLine />
 
       {/* Featured Product */}
       <div>
         <section className="pt-4 relative">
+          {/* title */}
           <SectionTitle
             className="px-4"
             smallTitle="Featured"
             largeTitle="New Arrival"
           />
 
+          {/* products images */}
           <article className="xl:mx-20 px-4 sm:mt-10 mt-4 flex lg:gap-7 gap-4 sm:flex-row flex-col">
             <div>
               <FeaturedProductCard image={featuredProduct1} />
@@ -264,10 +272,9 @@ const Home = () => {
       </div>
 
       {/* separator */}
-      <div className=" xl:px-24 md:py-12 py-5"></div>
+      <Separator noLine />
 
       {/* our Features */}
-      {/* Featured Product */}
       <section className="px-4 xl:mx-20 relative">
         <article className="flex lg:gap-28 sm:gap-16 gap-4 sm:flex-row flex-col justify-center">
           {OurFeatureList.map((item) => (
@@ -277,7 +284,7 @@ const Home = () => {
       </section>
 
       {/* separator */}
-      <div className=" xl:px-24 md:py-12 py-5"></div>
+      <Separator noLine />
 
       {/* footer */}
       <Footer />

@@ -15,9 +15,11 @@ import SliderPrevArrow from "./Slider/SliderPrevArrow";
 import CategoryCard from "./CategoryCard";
 import OfferProduct from "./OfferProduct";
 import OurFeature from "./OurFeature";
+import Separator from "./Separator";
 
 export {
   OurFeature,
+  Separator,
   FeaturedProductCard,
   CategoryCard,
   OfferProduct,
